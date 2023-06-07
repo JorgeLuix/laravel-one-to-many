@@ -1,0 +1,38 @@
+@use './partials/variables' as *;
+
+$fa-font-path: "../fonts/webfonts" !default;
+
+@import "~@fortawesome/fontawesome-free/scss/fontawesome";
+@import "~@fortawesome/fontawesome-free/scss/regular";
+@import "~@fortawesome/fontawesome-free/scss/solid";
+@import "~@fortawesome/fontawesome-free/scss/brands";
+
+@import "~bootstrap/scss/bootstrap";
+
+@import "./partials/_navHeader.scss";
+@import "./partials/_sidebar.scss";
+@import "./partials/index.scss";
+
+:root {
+    --main-bg-color: #009d63;
+    --main-text-color: #009d63;
+    --second-text-color: #bbbec5;
+    --second-bg-color: #c1efde;
+  }
+
+header video {
+    left: 50%;
+    min-height: 100%;
+    min-width: 100%;
+    opacity: .2;
+    position: absolute;
+    top: 50%;
+    transform: translate(-50%,-50%);
+}
+//skillsets//
+.even-section{
+    background-color: var(--main-bg-color);
+    padding-bottom: 3rem;
+    padding-top: 3rem;
+}
+
