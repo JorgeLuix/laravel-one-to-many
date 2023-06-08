@@ -24,7 +24,7 @@
 
         <header>
             @include('partials.navHeader')
-
+            {{-- @includeWhen(Route::currentRouteName() === 'home', 'partials.guest-page') --}}
         </header>
 
 

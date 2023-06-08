@@ -68,29 +68,47 @@
 
             </div>
             <div class="container-fluid px-4">
-                <div class="row">
-                    @foreach ($projects as $project)
-                        <div class="col-md-6 col-lg-4">
-                            <div class="card">
-                                <img class="card-img-top" src="{{ Vite::asset($project['image']) }}" alt="">
-                                <div class="card-body">
-                                    <h2>{{ $project->name }}</h2>
-                                    <p>{{ $project->description }}</p>
-                                    <a class="btn btn-primary" href="{{ $project->repository_url }}">Repository</a>
-                                    <a href="{{ route('admin.projects.show', $project->slug) }}"><i class="fa-solid fa-eye"></i></a>
-                                    <a href="{{ route('admin.projects.edit', $project->slug) }}" class="btn btn-warning text-white"><i
-                                        class="fa-solid fa-pencil"></i></a>
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th scope="col">ID</th>
+                            <th scope="col">Name</th>
+                            <th scope="col">Image</th>
+                            <th scope="col">Category</th>
+                            <th scope="col">Created</th>
+                            <th scope="col">Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach ($projects as $project)
+                            <tr>
+                                <th scope="row">{{ $project->id }}</th>
+                                <td>{{ $project->name }}</td>
+                                <td><img class="img-thumbnail" style="width:100px" src="{{ Vite::asset($project['image']) }}" alt="{{ $project->name }}">
+                                </td>
+                                <td>
+                                    {{ $project->category ? $project->tecnology->name : 'Senza tecnologia' }}
+                                </td>
+                                <td>{{ $project->user->name }} {{ $project->created_at }}</td>
+                                <td>
+                                    <div class="d-flex justify-content-between align-items-center">
+                                        <a href="{{ route('admin.projects.show', $project->slug) }}" class="btn btn-primary text-white"><i
+                                                class="fa-solid fa-eye"></i></a>
+                                        <a href="{{ route('admin.projects.edit', $project->slug) }}" class="btn btn-warning text-white"><i
+                                                class="fa-solid fa-pencil"></i></a>
                                         <form action="{{ route('admin.projects.destroy', $project->slug) }}" method="POST">
                                             @csrf
                                             @method('DELETE')
                                             <button type='submit' class="delete-button btn btn-danger text-white"
                                                 data-item-title="{{ $project->name }}"> <i class="fa-solid fa-trash"></i></button>
                                         </form>
-                                </div>
-                            </div>
-                        </div>
-                    @endforeach
-                </div>
+                                    </div>
+                                </td>
+                            </tr>
+                        @endforeach
+                    </tbody>
+                </table>
+                {{-- {{ $projects->links('vendor.pagination.bootstrap-5') }} --}}
             </div>
         </div>
     </div>

@@ -9,9 +9,9 @@
             <a href="{{ url('/') }}" class="list-group-item list-group-item-action bg-transparent second-text fw-bold"><i
                     class="fa-solid fa-house me-2"></i>Home</a>
             <a href="#" class="list-group-item list-group-item-action bg-transparent second-text fw-bold"><i
-                    class="fas fa-chart-line me-2"></i>Analytics</a>
-            <a href="https://github.com/JorgeLuix" class="list-group-item list-group-item-action bg-transparent second-text fw-bold"><i
-                    class="fa-brands fa-github me-2"></i>My Github</a>
+                    class="fas fa-chart-line me-2"></i>Projects</a>
+            <a href="#" class="list-group-item list-group-item-action bg-transparent second-text fw-bold"><i
+                    class="fa-brands fa-github me-2"></i>Tags</a>
             <a href="{{ route('logout') }}"  onclick="event.preventDefault();
             document.getElementById('logout-form').submit();" class="list-group-item list-group-item-action bg-transparent text-danger fw-bold"><i
                     class="fas fa-power-off me-2"></i>{{ __('Logout') }}</a>

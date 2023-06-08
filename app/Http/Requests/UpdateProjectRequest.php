@@ -27,7 +27,6 @@ class UpdateProjectRequest extends FormRequest
     {
         return [
             'name' => 'required|string|max:150|unique:projects,name,' . $this->route('project')->id,
-            'slug' => 'required|string|unique:projects,slug,' . $this->route('project')->id,
             'image' => 'nullable|image',
             'description' => 'nullable|string',
             'repository_url' => 'required|string',

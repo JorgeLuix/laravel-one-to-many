@@ -7,7 +7,16 @@
         <div class="card">
             <div class="card-body">
                 <h5 class="card-title">Modifica Project con id: {{$project->name}} </h5>
-                <form action="{{ route('admin.projects.update', $project->id) }}" method="POST" enctype="multipart/form-data">
+                @if($errors->any())
+    <div class="alert alert-danger" role="alert">
+        <ul>
+            @foreach($errors->all() as $error)
+              <li>{{$error}}</li>
+            @endforeach
+        </ul>
+    </div>
+@endif
+                <form action="{{ route('admin.projects.update', $project->slug) }}" method="POST" enctype="multipart/form-data">
                     @csrf
                     @method('PUT')
                     <div class="mb-3">

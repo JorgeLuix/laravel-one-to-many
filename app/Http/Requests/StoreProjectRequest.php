@@ -25,7 +25,6 @@ class StoreProjectRequest extends FormRequest
     {
         return [
             'name' => 'required|string|unique:projects,name|max:150',
-            'slug' => 'required|string|unique:projects,slug',
             'image' => 'nullable|image',
             'description' => 'nullable|string',
             'repository_url' => 'required|string',
