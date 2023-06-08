@@ -1,10 +1,12 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Admin;
 
 use App\Models\Tecnology;
+use App\Models\Project;
 use App\Http\Requests\StoreTecnologyRequest;
 use App\Http\Requests\UpdateTecnologyRequest;
+use App\Http\Controllers\Controller;
 
 class TecnologyController extends Controller
 {
@@ -15,7 +17,8 @@ class TecnologyController extends Controller
      */
     public function index()
     {
-        //
+        $tecnologies = Tecnology::all();
+        return view('admin.tecnologies.index', compact('tecnologies'));
     }
 
     /**
@@ -47,7 +50,7 @@ class TecnologyController extends Controller
      */
     public function show(Tecnology $tecnology)
     {
-        //
+        return view('admin.tecnologies.show', compact('tecnology'));
     }
 
     /**

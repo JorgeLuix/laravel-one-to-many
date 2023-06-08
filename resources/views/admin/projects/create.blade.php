@@ -44,6 +44,18 @@
                             <div class="invalid-feedback">{{ $message }}</div>
                         @enderror
                     </div>
+                    <div class="mb-3">
+                        <label for="tecnology_id">Tecnology</label>
+                        <select name="tecnology_id" id="tecnology_id" class="form-control @error('tecnology_id') is-invalid @enderror">
+                            <option value="">Seleziona categoria</option>
+                            @foreach ($tecnologies as $tecnology)
+                                <option value="{{ $tecnology->id }}">{{ $tecnology->name }}</option>
+                            @endforeach
+                        </select>
+                        @error('tecnology_id')
+                            <div class="invalid-feedback">{{ $message }}</div>
+                        @enderror
+                    </div>
                     <button type="submit" class="btn btn-primary">Add new project</button>
                     <a href="{{ route('admin.projects.index') }}" class="btn btn-danger">Back to Project</a>
                 </form>

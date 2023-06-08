@@ -74,7 +74,7 @@
                             <th scope="col">ID</th>
                             <th scope="col">Name</th>
                             <th scope="col">Image</th>
-                            <th scope="col">Category</th>
+                            <th scope="col">Tecnology</th>
                             <th scope="col">Created</th>
                             <th scope="col">Actions</th>
                         </tr>
@@ -87,9 +87,9 @@
                                 <td><img class="img-thumbnail" style="width:100px" src="{{ Vite::asset($project['image']) }}" alt="{{ $project->name }}">
                                 </td>
                                 <td>
-                                    {{ $project->category ? $project->tecnology->name : 'Senza tecnologia' }}
+                                    {{ $project->tecnology ? $project->tecnology->name : 'Senza tecnologia' }}
                                 </td>
-                                <td>{{ $project->user->name }} {{ $project->created_at }}</td>
+                                <td>{{ $project->created_at }}</td>
                                 <td>
                                     <div class="d-flex justify-content-between align-items-center">
                                         <a href="{{ route('admin.projects.show', $project->slug) }}" class="btn btn-primary text-white"><i

@@ -30,6 +30,7 @@ class UpdateProjectRequest extends FormRequest
             'image' => 'nullable|image',
             'description' => 'nullable|string',
             'repository_url' => 'required|string',
+            'tecnology_id' => 'nullable|exists:tecnologies,id',
         ];
     }
 

@@ -4,6 +4,8 @@ namespace App\Http\Controllers\Admin;
 
 use Illuminate\Http\Request;
 use App\Models\Project;
+use App\Models\Tecnology;
+use App\Models\Tag;
 use App\Http\Requests\StoreProjectRequest;
 use App\Http\Requests\UpdateProjectRequest;
 use App\Http\Controllers\Controller;
@@ -36,7 +38,9 @@ class ProjectController extends Controller
      */
     public function create()
     {
-        return view('admin.projects.create');
+        $tecnologies = Tecnology::all();
+        // $tags = Tag::all();
+        return view('admin.projects.create', compact('tecnologies'));
     }
 
     /**
@@ -85,7 +89,9 @@ class ProjectController extends Controller
         if (!Auth::user()->is_admin && $project->user_id !== Auth::id()) {
             abort(403);
         }
-        return view('admin.projects.edit', compact('project'));
+        $tecnologies = Tecnology::all();
+        // $tags = Tag::all();
+        return view('admin.projects.edit', compact('project', 'tecnologies'));
     }
 
     /**
